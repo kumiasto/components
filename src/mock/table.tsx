@@ -1,6 +1,4 @@
-import { Columns } from '../components/table/types';
-
-export const data: Array<Data> = [
+export const data: any = [
   {
     id: 1,
     firstName: 'Terry',
@@ -66,7 +64,7 @@ export const data: Array<Data> = [
   },
 ];
 
-export const columns: Array<Columns<Data, keyof Data>> = [
+export const columns: any = [
   {
     key: 'firstName',
     header: 'First Name',

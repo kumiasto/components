@@ -5,17 +5,10 @@ import { columns, data } from './mock/table';
 import { items } from './mock/transfer-list';
 
 function App() {
-  const onChange = (values: ItemsType) => console.log('Seleceted data', values);
-
   return (
     <div>
       <h2 className='p-2 text-lg'>Transfer list</h2>
-      <TransferList
-        leftLabel='Left'
-        rightLabel='Right'
-        onChange={onChange}
-        items={items}
-      />
+      <TransferList leftLabel='Left' rightLabel='Right' items={items} />
       <Separator />
       <h2 className='p-2 text-lg'>Table</h2>
       <Table data={data} columns={columns} />

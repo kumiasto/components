@@ -14,15 +14,9 @@ type TransferListProps = {
   items: ItemsType;
   leftLabel?: string;
   rightLabel?: string;
-  onChange: (items: ItemsType) => void;
 };
 
-function TransferList({
-  leftLabel,
-  rightLabel,
-  items,
-  onChange,
-}: TransferListProps) {
+function TransferList({ leftLabel, rightLabel, items }: TransferListProps) {
   const [leftColumnsItems, setLeftColumnsItems] = useState(items);
   const [rightColumnsItems, setRightColumnsItems] = useState<ItemsType | []>(
     []
@@ -66,7 +60,6 @@ function TransferList({
   const handleTransferToRightColumn = () => {
     const items = [...rightColumnsItems, ...leftColumnsItems];
     setRightColumnsItems(items.map((item) => ({ ...item, checked: true })));
-    onChange(items);
     setLeftColumnsItems([]);
   };
 
@@ -74,7 +67,6 @@ function TransferList({
     const items = [...leftColumnsItems, ...rightColumnsItems];
     setLeftColumnsItems(items.map((item) => ({ ...item, checked: false })));
     setRightColumnsItems([]);
-    onChange([]);
   };
 
   const handlePartialToRightColumn = () => {
@@ -83,7 +75,6 @@ function TransferList({
     const uncheckedValue = setUncheckedValues(leftColumnsItems);
     setLeftColumnsItems([...uncheckedValue]);
     setRightColumnsItems([...rightColumnsItems, ...checkedValue]);
-    onChange([...rightColumnsItems, ...checkedValue]);
   };
 
   const handlePartialToLeftColumn = () => {
@@ -92,7 +83,6 @@ function TransferList({
     const uncheckedValue = setUncheckedValues(rightColumnsItems);
     setLeftColumnsItems([...leftColumnsItems, ...checkedValue]);
     setRightColumnsItems([...uncheckedValue]);
-    onChange([...uncheckedValue]);
   };
 
   const anyCheckedInRightColumn = checkIfAnyChecked(rightColumnsItems);
