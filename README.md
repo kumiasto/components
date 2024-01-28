@@ -1,3 +1,3 @@
-Several components built for learning reason. [Preview](https://kumiasto.github.io/components/)
+Several components built for learning reason. New components will be added regularly. [Preview](https://kumiasto.github.io/components/).
 
 Stack: Typescript, React, Tailwind
